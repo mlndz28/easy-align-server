@@ -27,10 +27,10 @@ RUN git clone https://github.com/TALP-UPC/saga.git \
 
 RUN wget -qO- https://raw.githubusercontent.com/mlndz28/praat-easy-align-linux/master/installer.sh | bash
 
-COPY main.go /go/src/easyalign/main.go
+COPY main.go /go/src/easyalignserver/main.go
 
 RUN go get github.com/mlndz28/praatgo \
     && export GOBIN=/go/bin \
-    && go install easyalign
+    && go install easyalignserver
 
-CMD /go/bin/easyalign 
+CMD easyalignserver
